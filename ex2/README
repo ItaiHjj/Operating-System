@@ -1,0 +1,33 @@
+# OS Ex. 2
+
+# void siglongjmp(sigjmp_buf env, int val)
+siglongjmp restores environment and signal mask saved by sigsetjmp and jumps to the position of sigsetjmp with env.
+It then continues execution with the perception of sigset returning val.
+
+# int sigsetjmp(jmp_buf env, int val)
+sigsetjmp saves the environment and returns 0 initially. When siglongjmp is called next it returns val, indicating
+that the program is restoring the environment again.
+
+# How siglongjmp and sigsetjmp affect masking
+sigsetjmp saves the mask and siglongjmp restores it.
+
+# User level threads
+User level threads require less overhead than processes, and share the same memory. They are easier to work with, and provide
+more control for the application layer than kernel level threads.
+
+# Google Chrome
+Advantages include: isolated memory, isolated execution, and the fact that with web browser tabs, the user is usually using 
+a small number of tabs and the other tabs don't need to do lots of work in the background on the client's native machine.
+
+Disadvantage: More overhead for creating processes, more memory usage
+
+Note: Google chrome runs on the v8 engine which opperates on a single-threaded eventloop based architechture. So technically 
+it is not designed to be multithreaded. Asynchronous execution is done with the eventloop.
+
+# Killing a process
+When using kill we use SIGTERM which cleans up the process resources and then kills it.
+We use SIGKILL to force kill the process.
+
+# Real time and virtual time
+Virtual time is the time measured in CPU clock cycles.
+Real time is the total amount of time that has elapsed since the beginning of execution.
