@@ -1,5 +1,10 @@
 User Level threads for Unix operating system
 
+User-Level Threads Implementation Developed in C++ as part of an Operating Systems course. 
+This project involved creating and managing user-level threads, which operate within
+the user space and allow multiple threads to run within a single process.
+
+################################################################################
 
 # OS Ex. 2
 
